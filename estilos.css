@@ -1,0 +1,204 @@
+body {
+  font-family: Arial;
+  color: #4a566e;
+  margin: 0;
+}
+
+
+.caixa1 {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  text-align: center;
+  background: url(https://img.freepik.com/free-vector/minimal-desktop-background-white-abstract-design-vector_53876-135921.jpg?w=2000);
+  background-size: cover;
+}
+
+.menu {
+  text-align: right;
+  padding-right: 40px;   
+}
+
+.caixa0 {
+background: url(https://img.freepik.com/free-vector/minimal-desktop-background-white-abstract-design-vector_53876-135921.jpg?w=2000);
+background-size: cover;
+}
+
+.caixa2 {
+  background: #055a39;
+  padding-bottom: 50px;
+}
+
+.caixa3 {
+  height: 600px;
+  background: #ffffff;
+  text-align: center;
+  
+}
+
+.caixa4 {
+  height: 700px;
+  background: #ffffff;
+  text-align: center;
+  
+}
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 48px;
+}
+
+p {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
+}
+
+.catioro {
+  height: 150px;
+
+}
+
+.catioro2 {
+  height: 150px;
+  border-radius: 100px;
+}
+
+.jogos {
+  height: 120px;
+  border-radius: 100px;
+}
+
+.control {
+  border-radius: 50%;
+  height: 150px;
+}
+
+.control2 {
+  border-radius: 50%;
+  height: 160px;
+}
+
+.control3 {
+  height: 350px;
+}
+
+
+
+.design {
+  height: 150px;
+  border-radius: 100px;
+}
+
+.caixa0 {
+
+text-align: center;
+}
+
+.logo{
+  height: 50px;
+  padding-top: 30px;
+  
+}
+
+.linkmenu {
+  text-decoration: none;
+  color: #4a566e;
+  margin-left: 20px;
+}
+
+a:hover {
+  color: #77e0d2;
+}
+
+.habilidade {
+  background: white;
+  width: 300px;
+  border-radius: 30px;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.habilidade2 {
+  background: #618adb;
+  width: 200px;
+  height: 200px;
+  border-radius: 30px;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+
+.titulohabilidades {
+  color: white;
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.titulocontato {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.titulocontato2 {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.linkwhatsapp {
+  color: white;
+  background: green;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.outroscontatos {
+  padding-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .menu {
+    display: none;
+  }
+  
+.audio1 {
+  text-align: center;
+  
+  .habilidade {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+
+  h1 {
+  text-align: center;
+  font-size: 10px;
+  }
+}

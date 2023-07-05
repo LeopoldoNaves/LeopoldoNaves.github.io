@@ -97,7 +97,9 @@ h4 {
 }
 
 .control3 {
-  height: 350px;
+  max-width: 100%;
+  height: auto;
+  max-height: 350px;
 }
 
 
@@ -177,4 +179,29 @@ a:hover {
 
 .outroscontatos {
   padding-top: 10px;
+}
+
+
+.grid_1{
+  margin-left: auto;
+  margin-right: auto; 
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-auto-rows: 50%;
+}
+
+.grid_2{
+  height: 700px;
+  margin-left: auto;
+  margin-right: auto; 
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25% 25%;
+  grid-auto-rows: 50%;
+}
+
+.grid_projeto{
+ 
+  display: grid;
+  grid-template-rows: 75% 25% ;
+  
 }

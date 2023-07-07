@@ -35,11 +35,16 @@ background-size: cover;
 }
 
 .RELATORIO_2 {
-  height: 1200px;
+  height: 900px;
   background: #ffffff;
   text-align: center;
 }
 
+.RELATORIO_3 {
+  height: 1200px;
+  background: #ffffff;
+  text-align: center;
+}
 
 .caixa4 {
   height: 700px;
@@ -191,13 +196,28 @@ a:hover {
 }
 
 .grid_2{
-  height: 700px;
+  height: 600px;
   margin-left: auto;
   margin-right: auto; 
   display: grid;
   grid-template-columns: 25% 25% 25% 25% 25%;
   grid-auto-rows: 50%;
 }
+
+.grid_3{
+  height: 700px;
+  margin-left: auto;
+  margin-right: auto; 
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-auto-rows: 50%;
+}
+
+
+
+
+
+
 
 .grid_projeto{
  

@@ -46,6 +46,12 @@ background-size: cover;
   text-align: center;
 }
 
+.RELATORIO_4 {
+  height: 1200px;
+  background: #ffffff;
+  text-align: center;
+}
+
 .caixa4 {
   height: 700px;
   background: #ffffff;
@@ -210,6 +216,15 @@ a:hover {
   margin-right: auto; 
   display: grid;
   grid-template-columns: 33% 33% 33%;
+  grid-auto-rows: 50%;
+}
+
+.grid_4{
+  height: 700px;
+  margin-left: auto;
+  margin-right: auto; 
+  display: grid;
+  grid-template-columns: 33% fit-content(33%) 33%;
   grid-auto-rows: 50%;
 }
 

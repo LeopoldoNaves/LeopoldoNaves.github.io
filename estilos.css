@@ -28,29 +28,6 @@ background-size: cover;
   padding-bottom: 50px;
 }
 
-.RELATORIO_1 {
-  height: 900px;
-  background: #ffffff;
-  text-align: center;
-}
-
-.RELATORIO_2 {
-  height: 900px;
-  background: #ffffff;
-  text-align: center;
-}
-
-.RELATORIO_3 {
-  height: 1200px;
-  background: #ffffff;
-  text-align: center;
-}
-
-.RELATORIO_4 {
-  height: 1200px;
-  background: #ffffff;
-  text-align: center;
-}
 
 .caixa4 {
   height: 700px;
@@ -107,11 +84,7 @@ h4 {
   height: 160px;
 }
 
-.control3 {
-  max-width: 100%;
-  height: auto;
-  max-height: 350px;
-}
+
 
 
 
@@ -193,25 +166,126 @@ a:hover {
 }
 
 
+
+
+/*888888888888888888888*/
+.downloadlink {
+  font: bold 20px Arial;
+  text-decoration: none;
+  background-color:#055a39;
+  color: #ffffff;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+}
+
+.tituloLab {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.control3 {
+  max-width: 100%;
+  max-height: 350px;
+}
+.control3 {
+  max-width: 400px;
+  height: auto;
+  max-height: 300px;
+  
+}
+
+
+
+.RELATORIO_1 {
+  max-height: 900px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.RELATORIO_2 {
+  max-height: 900px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.RELATORIO_3 {
+  max-height: 700px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.RELATORIO_4 {
+  max-height: 1200px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.RELATORIO_5 {
+  max-height: 1200px;
+  background: #ffffff;
+  text-align: center;
+}
+
+
+
+
 .grid_1{
+  max-height: 700px;
+  max-width: max-content;
   margin-left: auto;
-  margin-right: auto; 
+  margin-right: auto;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  grid-auto-rows: 50%;
+  grid-auto-rows: 50% 50%;
+  column-gap: 5px;
+  row-gap: 5px;
+}
+
+.grid-item1  > img {
+  
+  object-fit: cover;
+  max-width: 300px;
+  max-height: 300px;  
+  height: auto;
+  width: auto;
+  border-radius: 15px;
+}
+
+.grid-item1  > video {
+  object-fit: cover;
+  max-width: 300px;
+  max-height: auto;  
+  height: auto;
+  width: auto;
+  border-radius: 15px;
 }
 
 .grid_2{
-  height: 600px;
-  margin-left: auto;
-  margin-right: auto; 
+  max-height: 700px;
+  max-width: max-content;
+  margin-left: 0;
+  margin-right: 0; 
   display: grid;
-  grid-template-columns: 25% 25% 25% 25% 25%;
-  grid-auto-rows: 50%;
+  justify-content: space-evenly;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-auto-rows: 50% 50%;
+  column-gap: 5px;
+  row-gap: 5px;
+}
+
+.grid-item2  > img {
+  object-fit: cover;
+  max-width: 300px;
+  max-height: 300px;  
+  height: auto;
+  width: auto;
+  border-radius: 15px;
 }
 
 .grid_3{
-  height: 700px;
+  max-height: 700px;
   margin-left: auto;
   margin-right: auto; 
   display: grid;
@@ -219,20 +293,47 @@ a:hover {
   grid-auto-rows: 50%;
 }
 
+.grid-item3  > video {
+  object-fit: cover;
+  max-width: 600px;
+  max-height: auto;  
+  height: auto;
+  width: auto;
+  border-radius: 15px;
+}
+
+
 .grid_4{
-  height: 700px;
+  max-height: 700px;
+  margin-left: auto;
+  margin-right: auto; 
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-auto-rows: 50%;
+}
+
+.grid-item4  > img {
+  object-fit: cover;
+  max-width: 400px;
+  max-height: 400px;  
+  height: auto;
+  width: auto;
+  border-radius: 15px;
+}
+
+.grid_4_doubleImage{
+  max-width: 1200px;
+  max-height: 1000px; 
+}
+
+.grid_5{
+  max-height: 700px;
   margin-left: auto;
   margin-right: auto; 
   display: grid;
   grid-template-columns: 33% fit-content(33%) 33%;
   grid-auto-rows: 50%;
 }
-
-
-
-
-
-
 
 .grid_projeto{
  

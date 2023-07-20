@@ -73,7 +73,7 @@
     <!-- Relatórios -->
 
     <!-- Lab 01 -->
-    <div class="RELATORIO_1" >
+    <div class="RELATORIO_1" id="relatorios" >
         <br>
         <h1 class="tituloLab">Relatórios (Entregas) </h1>
         <h3 class="tituloLab" >Lab01: Captura de Imagem e Vídeo</h3>
@@ -199,12 +199,14 @@
       <button onclick="playRel3()">Play</button>
       <br>
       <br>
-      <p id="demo"></p>
       <script>
         function playRel3() {
-          document.getElementById("rel3_vid1").play()
-          document.getElementById("rel3_vid2").play()
-          document.getElementById("rel3_vid3").play()
+          document.getElementById("rel3_vid1").currentTime = 0;
+          document.getElementById("rel3_vid2").currentTime = 0;
+          document.getElementById("rel3_vid3").currentTime = 0;
+          document.getElementById("rel3_vid1").play();
+          document.getElementById("rel3_vid2").play();
+          document.getElementById("rel3_vid3").play();
         }
         </script>
   </div>
@@ -256,9 +258,91 @@
     <a  class="downloadlink" href="https://drive.google.com/uc?export=download&id=1nh1XYC1Qv43N6XxuGyHpiiNX6sbIT-6K" target="_blank" >Vídeos</a>
     <br>
     <br>
-    <div class="grid_5">
 
+    <div class="grid_5">
+      <figure class="grid-item5">
+        <video  id="rel5_vid1" controls src="./assets/relatorio_5/videos/ex1a_chico-lento.mp4"></video>
+        <figcaption>Your label goes here</figcaption>
+      </figure>
+      <figure class="grid-item5">
+        <video  id="rel5_vid2" controls src="./assets/relatorio_5/videos/ex1b_chico-lento.mp4"></video>
+        <figcaption>Your label goes here</figcaption>
+      </figure>
+      <figure class="grid-item5">
+        <video  id="rel5_vid3" controls src="./assets/relatorio_5/videos/ex1c_chico-lento.mp4"></video>
+        <figcaption>Your label goes here</figcaption>
+      </figure>
     </div>
+
+    <button onclick="playRel5()">Play</button>
+    <button onclick="continueRel5()">Continue</button>
+    <button onclick="pauseRel5()">Pause</button>
+    <br>
+    <br>
+    <script>
+      function playRel5() {
+        document.getElementById("rel5_vid1").currentTime = 0;
+        document.getElementById("rel5_vid2").currentTime = 0;
+        document.getElementById("rel5_vid3").currentTime = 0;
+        document.getElementById("rel5_vid1").play();
+        document.getElementById("rel5_vid2").play();
+        document.getElementById("rel5_vid3").play();
+      }
+      function pauseRel5() {
+        document.getElementById("rel5_vid1").pause();
+        document.getElementById("rel5_vid2").pause();
+        document.getElementById("rel5_vid3").pause();
+      }
+      function continueRel5() {
+        document.getElementById("rel5_vid1").play();
+        document.getElementById("rel5_vid2").play();
+        document.getElementById("rel5_vid3").play();
+      }
+      </script>
+
+<div class="grid_5">
+  <figure class="grid-item5">
+    <video  id="rel5b_vid1" controls src="./assets/relatorio_5/videos/ex2_leop_limpo.mp4"></video>
+    <figcaption>Your label goes here</figcaption>
+  </figure>
+  <figure class="grid-item5">
+    <video  id="rel5b_vid2" controls src="./assets/relatorio_5/videos/ex2_leop_mascara.mp4"></video>
+    <figcaption>Your label goes here</figcaption>
+  </figure>
+  <figure class="grid-item5">
+    <video  id="rel5b_vid3" controls src="./assets/relatorio_5/videos/ex2_leop_retangle.mp4"></video>
+    <figcaption>Your label goes here</figcaption>
+  </figure>
+</div>
+
+<button onclick="playRel5b()">Play</button>
+    <button onclick="continueRel5b()">Continue</button>
+    <button onclick="pauseRel5b()">Pause</button>
+    <br>
+    <br>
+    <script>
+      function playRel5b() {
+        document.getElementById("rel5b_vid1").currentTime = 0;
+        document.getElementById("rel5b_vid2").currentTime = 0;
+        document.getElementById("rel5b_vid3").currentTime = 0;
+        document.getElementById("rel5b_vid1").play();
+        document.getElementById("rel5b_vid2").play();
+        document.getElementById("rel5b_vid3").play();
+      }
+      function pauseRel5b() {
+        document.getElementById("rel5b_vid1").pause();
+        document.getElementById("rel5b_vid2").pause();
+        document.getElementById("rel5b_vid3").pause();
+      }
+      function continueRel5b() {
+        document.getElementById("rel5b_vid1").play();
+        document.getElementById("rel5b_vid2").play();
+        document.getElementById("rel5b_vid3").play();
+      }
+      </script>
+
+
+
   </div>
   </body>
 </html>

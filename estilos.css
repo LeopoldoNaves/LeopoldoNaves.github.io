@@ -354,6 +354,16 @@ a:hover {
   grid-auto-rows: 50%;
 }
 
+.grid-item5  > video {
+  object-fit: cover;
+  max-width: 600px;
+  max-height: auto;  
+  height: auto;
+  width: auto;
+  border-radius: 15px;
+}
+
+
 .grid_projeto{
  
   display: grid;

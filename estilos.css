@@ -217,7 +217,7 @@ a:hover {
 }
 
 .RELATORIO_4 {
-  max-height: 1200px;
+  max-height: 1600px;
   background: #ffffff;
   text-align: center;
 }
@@ -302,29 +302,48 @@ a:hover {
   border-radius: 15px;
 }
 
-
 .grid_4{
-  max-height: 700px;
+  max-height: 1600px;
   margin-left: auto;
   margin-right: auto; 
   display: grid;
-  grid-template-columns: 75% 25%;
-  grid-auto-rows: 50%;
+  grid-template-columns: 50% 50%;
+  column-gap: 1px;
+  
 }
 
-.grid-item4  > img {
-  object-fit: cover;
-  max-width: 400px;
-  max-height: 400px;  
+.grid-item4{
+  max-height: 500px; 
   height: auto;
   width: auto;
-  border-radius: 15px;
 }
 
-.grid_4_doubleImage{
-  max-width: 1200px;
-  max-height: 1000px; 
+.grid-item4 > img{
+  object-fit: cover;
+  max-width: 700px;
+  max-height: 500px;  
+  height: auto;
+  width: auto;
+  border-radius: 10px;
 }
+
+.grid-4-binary{
+  max-height: 500px; 
+  height: auto;
+  width: auto;
+}
+
+.grid-4-binary > img{
+  object-fit: cover;
+  max-width: 1600px;
+  max-height: 500px;  
+  height: auto;
+  width: auto;
+  border-radius: 10px;
+}
+
+
+
 
 .grid_5{
   max-height: 700px;

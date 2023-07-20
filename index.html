@@ -184,18 +184,29 @@
       <br>
       <div class="grid_3">
         <figure class="grid-item3">
-          <video  controls src="./assets/relatorio_3/videos/saida_limpa.mp4"></video>
+          <video  id="rel3_vid1"  src="./assets/relatorio_3/videos/saida_limpa.mp4"></video>
           <figcaption>Your label goes here</figcaption>
         </figure>
         <figure class="grid-item3">
-          <video  controls src="./assets/relatorio_3/videos/saida_mask.mp4"></video>
+          <video  id="rel3_vid2"  src="./assets/relatorio_3/videos/saida_mask.mp4"></video>
           <figcaption>Your label goes here</figcaption>
         </figure>
         <figure class="grid-item3">
-          <video  controls src="./assets/relatorio_3/videos/saida_verde.mp4"></video>
+          <video  id="rel3_vid3" src="./assets/relatorio_3/videos/saida_verde.mp4"></video>
           <figcaption>Your label goes here</figcaption>
         </figure>
       </div>
+      <button onclick="playRel3()">Play</button>
+      <br>
+      <br>
+      <p id="demo"></p>
+      <script>
+        function playRel3() {
+          document.getElementById("rel3_vid1").play()
+          document.getElementById("rel3_vid2").play()
+          document.getElementById("rel3_vid3").play()
+        }
+        </script>
   </div>
   <br>
   <!-- Lab 04-->
@@ -209,34 +220,29 @@
       <br>
       <div class="grid_4">
         
-        <figure class="grid-item4"> 
-          <img class="grid_4_doubleImage" src="./assets/relatorio_4/fotos/chico_equalizado.jpeg" >
+
+        <figure class="grid-item4" > 
+          <img  src="./assets/relatorio_4/fotos/chico_foto_histogram.png" >
           <figcaption >Your label goes here</figcaption>
         </figure>
-        <figure class="grid-item4">
-          <img src="./assets/relatorio_4/fotos/chico_histogram.png" >
-          <figcaption>Your label goes here</figcaption>
+
+        <figure class="grid-item4" > 
+          <img  src="./assets/relatorio_4/fotos/leo_foto_histogram.png" >
+          <figcaption >Your label goes here</figcaption>
         </figure>
+
         <figure class="grid-item4">
-          <img src="./assets/relatorio_4/fotos/leo_equalizer.jpeg" >
-          <figcaption>Your label goes here</figcaption>
-        </figure class="grid-item4">
-        <figure class="grid-item4">
-          <img src="./assets/relatorio_4/fotos/leo_histogram.png" >
-          <figcaption>Your label goes here</figcaption>
-        </figure>
-        <figure class="grid-item4">
-          <img src="./assets/relatorio_4/fotos/webcam_normal_and_equalizer.png" >
-          <figcaption>Your label goes here</figcaption>
-        <figure class="grid-item4">
-          <img src="./assets/relatorio_4/fotos/binary.png" >
+          <img  class="grid_4_doubleImage"  src="./assets/relatorio_4/fotos/webcam_normal_and_equalizer.png" >
           <figcaption>Your label goes here</figcaption>
         </figure>
         <figure class="grid-item4">
           <img src="./assets/relatorio_4/fotos/color_equalizer.jpeg" >
           <figcaption>Your label goes here</figcaption>
         </figure>
-
+        <figure class="grid-4-binary" style="grid-column: 1/3;">
+          <img   src="./assets/relatorio_4/fotos/binary_2.png" >
+          <figcaption>Your label goes here</figcaption>
+        </figure>
       </div>
 
   </div>

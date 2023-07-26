@@ -237,7 +237,7 @@ class SideMenu(ttk.Frame):
         
         self.threshFrame.pack( side=TOP, fill = X)
 
-
+        #
     def resize(self,width, height):
         self.width = width
         self.height = height
@@ -296,23 +296,40 @@ class Canvas(ttk.Frame):
 #Todos os filtros esta'o aqui
 class VideoPipeline():
     cap = None
-    height = None
-    width = None
+    heightCanvas = None
+    widthCanvas = None
+    aspectRatioCanvas = None
     path = None
+    
+    heightCap = None
+    widthCap = None
+    aspectRatioCap = None
+
     #subtrator
     backSub = cv.createBackgroundSubtractorMOG2()
-    def __init__(self, height, width, path):
+    def __init__(self, width, height, path):
         if(path == "none"):
             self.cap = cv.VideoCapture(0)
         else:
             self.path = path
             self.cap = cv.VideoCapture(path)
-        self.height = height
-        self.width = width
+
+        #Video native resolution
+        self.heightCap = self.cap.get(cv.CAP_PROP_FRAME_HEIGHT) 
+        self.widthCap =  self.cap.get(cv.CAP_PROP_FRAME_WIDTH) 
+        self.aspectRatioCap = self.widthCap / self.heightCap
+
+        #Canvas resolution
+        self.heightCanvas = height
+        self.widthCanvas = width
+        self.aspectRatioCanvas =   self.widthCanvas / self.heightCanvas
+
+
 
     #Renderiza um frame do cap
     def render(self):
         img = self.cap.read(0)[1]   #Aquizicao
+        img = self.autoFit(img)
         img = self.blur(img)        #blur
         img = self.histogram(img)   #histogram equalization
         img = self.saturation(img)  #saturation adjust
@@ -320,6 +337,31 @@ class VideoPipeline():
         img = self.tresh(img)       #Threshold
         return img
     
+
+    #faz o autofit da imagem para a resolução do Canvas
+    def autoFit(self, img):
+        print(str(self.widthCap)+"x"+str(self.heightCap)+" "+str(self.aspectRatioCap)+"|||||||||"+str(self.widthCanvas)+"x"+str(self.heightCanvas)+str(self.aspectRatioCanvas))
+        #ajuste pela altura
+        if self.aspectRatioCap <= self.aspectRatioCanvas:
+            scaleFactor = self.heightCanvas / self.heightCap
+            newWidth =  scaleFactor * self.widthCap
+            newHeight = scaleFactor * self.heightCap 
+            centerOffsetI = (int(newWidth) - int(self.widthCanvas)) / 2
+            centerOffsetF = newWidth - centerOffsetI
+        else:#Ajuste pelo comprimento
+            scaleFactor = self.widthCanvas / self.widthCap
+            newWidth =  scaleFactor * self.widthCap
+            newHeight = scaleFactor * self.heightCap 
+            centerOffsetI = (int(newHeight) - int(self.heightCanvas)) / 2
+            centerOffsetF = newHeight - centerOffsetI
+        newRes = (int(newWidth), int(newHeight))
+        
+        #print("nativeRes:"+str(self.widthCap)+"x"+str(self.heightCap)+"Fit res"+str(newRes))
+        img_resize = cv.resize(img, newRes, interpolation= cv.INTER_LINEAR)
+        img_resize = img_resize[:, int(centerOffsetI):]
+        #print(img_rsic)
+        return img_resize
+
     #Aplica o efeito blur
     def blur(self, img):
         if(blurCheck.get()):
@@ -363,7 +405,7 @@ class VideoPipeline():
             return masked
         else:
             return img 
-        
+    #Faz o trhreshold da imagem no pizel format HSV
     def tresh(self,img):
         if(threshCheck.get()):
             lowHue = lowHueValue.get()

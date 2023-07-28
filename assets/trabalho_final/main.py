@@ -305,6 +305,9 @@ class VideoPipeline():
     widthCap = None
     aspectRatioCap = None
 
+    #facedetect
+    fd = None
+
     #subtrator
     backSub = cv.createBackgroundSubtractorMOG2()
     def __init__(self, width, height, path):
@@ -313,16 +316,19 @@ class VideoPipeline():
         else:
             self.path = path
             self.cap = cv.VideoCapture(path)
+        #Capturar na maior resolucao possivel
 
         #Video native resolution
         self.heightCap = self.cap.get(cv.CAP_PROP_FRAME_HEIGHT) 
         self.widthCap =  self.cap.get(cv.CAP_PROP_FRAME_WIDTH) 
         self.aspectRatioCap = self.widthCap / self.heightCap
-
+        print("resulution:"+str(self.widthCap)+"x"+str(self.heightCap))
         #Canvas resolution
         self.heightCanvas = height
         self.widthCanvas = width
         self.aspectRatioCanvas =   self.widthCanvas / self.heightCanvas
+        #facedetect
+        self.fd = faceDetect()
 
 
 
@@ -335,31 +341,36 @@ class VideoPipeline():
         img = self.saturation(img)  #saturation adjust
         img = self.bgSub(img)       #bg subtractor
         img = self.tresh(img)       #Threshold
+        img = self.fd.detect(img)
         return img
     
 
     #faz o autofit da imagem para a resolução do Canvas
     def autoFit(self, img):
-        print(str(self.widthCap)+"x"+str(self.heightCap)+" "+str(self.aspectRatioCap)+"|||||||||"+str(self.widthCanvas)+"x"+str(self.heightCanvas)+str(self.aspectRatioCanvas))
         #ajuste pela altura
-        if self.aspectRatioCap <= self.aspectRatioCanvas:
+        
+        if self.aspectRatioCap >= self.aspectRatioCanvas:
+            print("height")
             scaleFactor = self.heightCanvas / self.heightCap
             newWidth =  scaleFactor * self.widthCap
             newHeight = scaleFactor * self.heightCap 
             centerOffsetI = (int(newWidth) - int(self.widthCanvas)) / 2
             centerOffsetF = newWidth - centerOffsetI
+            newRes = (int(newWidth), int(newHeight))
+            img_resize = cv.resize(img, newRes, interpolation= cv.INTER_LINEAR)
+            img_resize = img_resize[:, int(centerOffsetI):int(centerOffsetF),:]
+
         else:#Ajuste pelo comprimento
+            print("width")
             scaleFactor = self.widthCanvas / self.widthCap
             newWidth =  scaleFactor * self.widthCap
             newHeight = scaleFactor * self.heightCap 
             centerOffsetI = (int(newHeight) - int(self.heightCanvas)) / 2
             centerOffsetF = newHeight - centerOffsetI
-        newRes = (int(newWidth), int(newHeight))
-        
-        #print("nativeRes:"+str(self.widthCap)+"x"+str(self.heightCap)+"Fit res"+str(newRes))
-        img_resize = cv.resize(img, newRes, interpolation= cv.INTER_LINEAR)
-        img_resize = img_resize[:, int(centerOffsetI):]
-        #print(img_rsic)
+            newRes = (int(newWidth), int(newHeight))
+            img_resize = cv.resize(img, newRes, interpolation= cv.INTER_LINEAR)
+            img_resize = img_resize[int(centerOffsetI):int(centerOffsetF), :,:]
+
         return img_resize
 
     #Aplica o efeito blur
@@ -420,6 +431,44 @@ class VideoPipeline():
             return img
         else:
             return img 
+        
+###################################################################################
+#Classe do detector de face
+class faceDetect():
+    face_detector = None
+    def __init__(self):
+        self.face_detector = cv.FaceDetectorYN_create("yunet.onnx", "", (0, 0))
+
+    def detect(self,img):
+        height, width, _ = img.shape
+        self.face_detector.setInputSize((width, height))
+        _, faces = self.face_detector.detect(img)
+        faces = faces if faces is not None else []
+
+        for face in faces:
+            box = list(map(int, face[:4]))
+            color = (0, 0, 255)
+            thickness = 2
+            cv.rectangle(img, box, color, thickness, cv.LINE_AA)
+
+            #landmarks = list(map(int, face[4:len(face)-1]))
+            #landmarks = np.array_split(landmarks, len(landmarks) / 2)
+            #for landmark in landmarks:
+            #    radius = 5
+            #    thickness = -1
+            #    cv.circle(img, landmark, radius, color, thickness, cv.LINE_AA)
+                
+
+            confidence = face[1]+ face[3]
+            confidence = "{:.2f}".format(confidence)
+            position = (box[0], box[3] + 10)
+            font = cv.FONT_HERSHEY_SIMPLEX
+            scale = 0.5
+            thickness = 2
+            cv.putText(img, confidence, position, font, scale, color, thickness, cv.LINE_AA)
+
+        return img
+    
         
     
 

@@ -436,16 +436,17 @@ class VideoPipeline():
 #Classe do detector de face
 class faceDetect():
     face_detector = None
+    faces = None
     def __init__(self):
         self.face_detector = cv.FaceDetectorYN_create("yunet.onnx", "", (0, 0))
 
     def detect(self,img):
         height, width, _ = img.shape
         self.face_detector.setInputSize((width, height))
-        _, faces = self.face_detector.detect(img)
-        faces = faces if faces is not None else []
+        _, self.faces = self.face_detector.detect(img)
+        self.faces = self.faces if self.faces is not None else []
 
-        for face in faces:
+        for face in self.faces:
             box = list(map(int, face[:4]))
             color = (0, 0, 255)
             thickness = 2
